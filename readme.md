@@ -61,4 +61,4 @@ With these lines we create the interface that performs the calculations of area 
 
 
 
-![example](src\example.png)
+![example](src/example.png)
