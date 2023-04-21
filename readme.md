@@ -71,4 +71,4 @@ if __name__ == "__main__":
 
 With these lines we create the interface that performs the calculations of area and perimeter of a rectangle. This frees us the declaration of the labels and other objects returning a ttk.LabelFrame with the additional methods set(), get() and the attributes widgets and button.
 
-![1682063595940](image/readme/1682063595940.png)
+![example](src/example.png)
