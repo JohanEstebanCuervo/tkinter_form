@@ -1,1 +1,1 @@
-import tkinter_form
+from tkinter_form.tkinter_form import Form
