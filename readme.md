@@ -1,11 +1,11 @@
-# tk_form
+# tkinter_form
 
 tk_form is a simple module that helps you to create forms in tkinter easily and quickly from a base dictionary, saving certain repetitive tasks in the creation of a form and adding the verification of integer and float variables. In simple words it is similar to having a tkinter variable. Its value is a dictionary.
 
 ## Install
 
 ```bash
-pip install tk_form
+pip install tkinter_form
 ```
 
 ## Tutorial
@@ -14,7 +14,7 @@ pip install tk_form
 
 ```python
 import tkinter as tk
-from tk_form import Form
+from tkinter_form import Form
 
 
 class App(tk.Tk):

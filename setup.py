@@ -13,7 +13,7 @@ LONG_DESCRIPTION = "create a form for tkinter from a base dictionary"
 
 # Setting up
 setup(
-    name="tk_form",
+    name="tkinter_form",
     version=VERSION,
     author="JohanEstebanCuervo",
     author_email="<jecuervoch@unal.edu.co>",
@@ -22,7 +22,15 @@ setup(
     long_description=long_description,
     packages=find_packages(),
     install_requires=["tk"],
-    keywords=["tkinter", "form", "form tkinter", "tkinter interface", "simple tkinter"],
+    keywords=[
+        "tkinter",
+        "form",
+        "form tkinter",
+        "tkinter interface",
+        "simple tkinter",
+        "tkform",
+        "tk form",
+    ],
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
@@ -31,4 +39,5 @@ setup(
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Microsoft :: Windows",
     ],
+    license="MIT",
 )
