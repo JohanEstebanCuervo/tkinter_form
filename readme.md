@@ -71,61 +71,54 @@ tkinter_form.Form(self,master: object, name_form: str, form_dict: dict, name_con
 
 Form object is a `ttk.LabelFrame`. With additional attributes: [`self.widgets`](#tkinter_formformwidgets), [`self.button`](#tkinter_formformbutton), [`self.get()`](#tkinter_formformget), [`self.set() `](#tkinter_formformset).
 
-
 Parameters:
 
+master : tk.Tk or object tk.parent
+    tkinter container or parent object
 
-    master : tk.Tk or object tk.parent
-        tkinter container or parent object
+name_form : str
+    string with edit`ttk.LabelFrame['text']
 
-    name_form : str
-        string with edit`ttk.LabelFrame['text']
+form_dict : dict[str:float|int|str|bool|list]
+    base structure of the form that contains the initial values of the form.[Struct Form](#struct-form)
 
-    form_dict : dict[str:float|int|str|bool|list]
-        base structure of the form that contains the initial values of the form. ![Struct Form](#struct-form)
 
-    name_config: str
-        name of the form button in case the argument`button` is `True     button : bool         Create a button on the form by default `
-
+name_config: str
+    name of the form button in case the argument`button` is `True` button : bool Create a button on the form by default 
 
 Attributes:
 
-    [`button`](#tkinter_formformbutton) : ttk.Button | None
-        if the button is create in the form.
+[`button`](#tkinter_formformbutton) : ttk.Button | None
+    if the button is create in the form.
 
-    [`widgets`](#tkinter_formformwidgets) : dict[str:[ttk.Label,ttk.Entry|ttk.CheckButton|ttk.ComboBox] | tkinter_form.Form]
-    dictionary that contains the widgets of the form with the same structure of the dictionary that was built. returning a list with two objects a tk.Label and a tk object according to the data type.
+[`widgets`](#tkinter_formformwidgets) : dict[str:[ttk.Label,ttk.Entry|ttk.CheckButton|ttk.ComboBox] | tkinter_form.Form]
+dictionary that contains the widgets of the form with the same structure of the dictionary that was built. returning a list with two objects a tk.Label and a tk object according to the data type.
 
-
-    [ttk.LabelFrame Atributes](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-LabelFrame.html)
-
+[ttk.LabelFrame Atributes](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-LabelFrame.html)
 
 Methods:
 
+[`get()`](#tkinter_formformget): Return Dict
+    Returns a dictionary with the same structure that was created which contains the values entered in the form
 
-    [`get()`](#tkinter_formformget): Return Dict
-        Returns a dictionary with the same structure that was created which contains the values entered in the form
+[`set(set_dict)`](#tkinter_formformset) : Return None
+    set_dict: dict
 
+dictionary with keys value of the base dictionary with values to set in the form
 
-    [`set(set_dict)`](#tkinter_formformset) : Return None
-        set_dict: dict
-
-    dictionary with keys value of the base dictionary with values to set in the form
-
-
-    [ttk.LabelFrame Methods](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-LabelFrame.html)
+[ttk.LabelFrame Methods](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-LabelFrame.html)
 
 #### tkinter_form.Form.button
 
-    is a ttk.buttom or None if the form button was not created
+is a ttk.buttom or None if the form button was not created
 
 #### tkinter_form.Form.widgets
 
-    dictionary that contains the widgets of the form with the same structure of the dictionary that was built. returning a list with two objects a tk.Label and a tk object according to the data type.
+dictionary that contains the widgets of the form with the same structure of the dictionary that was built. returning a list with two objects a tk.Label and a tk object according to the data type.
 
 ##### Example
 
-    in[Fast Example](#fast-example) the widget attibute return:
+in[Fast Example](#fast-example) the widget attibute return:
 
 ```python
 {
@@ -149,7 +142,7 @@ class App(tk.Tk):
 
 If the structure of the form contains subdictionaries in said key, a Form will be assigned.
 
-    Estruct example:
+Estruct example:
 
 ```python
 {   
@@ -176,15 +169,15 @@ If the structure of the form contains subdictionaries in said key, a Form will b
 
 #### tkinter_form.Form.get()
 
-    Arguments:
+Arguments:
 
-    Return:
-        None
-    Returns a dictionary with the same structure that was created which contains the values entered in the form.
+Return:
+    None
+Returns a dictionary with the same structure that was created which contains the values entered in the form.
 
 ##### Example
 
-    in [Fast Example](#fast-example) the get() function return:
+    in[Fast Example](#fast-example) the get() function return:
 
 ```python
 {
@@ -228,17 +221,17 @@ Estruct example:
 
 #### tkinter_form.Form.set()
 
-    Arguments:
-        set_dict : dict
+Arguments:
+    set_dict : dict
 
-    Return:
-        None
+Return:
+    None
 
-    dictionary with keys value of the base dictionary with values to set in the form
+dictionary with keys value of the base dictionary with values to set in the form
 
 ##### Example
 
-    in [Fast Example](#fast-example) the set() function in line 39-40:
+    in[Fast Example](#fast-example) the set() function in line 39-40:
 
 ```python
         result = {"result": str(value)}
@@ -246,16 +239,17 @@ Estruct example:
 ```
 
 ## Struct Form
-    
-    The form structure is based on a base dictionary. with some initial values ​​that will be displayed in the interface and that determine the type of data that the entry accepts. This means that if the value in the base dictionary is an integer, the entry will only allow the entry of integer values.
 
-    - dictionary keys are recommended to be strings but not required. But care must be taken. The Form.widgets will have as keys the same values ​​entered in the base structure.
+The form structure is based on a base dictionary. with some initial values that will be displayed in the interface and that determine the type of data that the entry accepts. This means that if the value in the base dictionary is an integer, the entry will only allow the entry of integer values.
 
-    - The comboboxes are generated by means of lists, these cannot be empty since their initial value is the first index of the list.
+- dictionary keys are recommended to be strings but not required. But care must be taken. The Form.widgets will have as keys the same values entered in the base structure.
+
+- The comboboxes are generated by means of lists, these cannot be empty since their initial value is the first index of the list.
 
 ### Examples Structs - Result
 
 1. example 1
+
 ```python
 estruct = {
     "high": float(),
@@ -265,9 +259,11 @@ estruct = {
     "result": str(),
 }
 ```
+
 ![Example 1](src/struct_example1.PNG)
 
 2. example 2
+
 ```python
 estruct = {
     "measurements":{
@@ -279,9 +275,11 @@ estruct = {
     "result": str(),
 }
 ```
+
 ![Example 1](src/struct_example2.PNG)
 
 3. example 2
+
 ```python
 estruct = {
     "Company:": "company.SAS",
@@ -295,18 +293,22 @@ estruct = {
     "Dietary Requirements:":str()
 }
 ```
+
 ![Example 1](src/struct_example3.PNG)
 
 ## Bugs
 
-1. get() function on integer values ​​returns the value difenter if in the Entry the value starts with zero.
-    Example:
+1. get() function on integer values returns the value difenter if in the Entry the value starts with zero.
+   Example:
+
 ```python
 estruct = {"value": int()}
 ```
+
 ![Bug Example](src/bug_example.PNG)
 
 return get()
+
 ```python
 {'value': 55}
 ```
