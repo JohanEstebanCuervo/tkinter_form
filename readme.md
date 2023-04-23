@@ -69,7 +69,7 @@ With these lines we create the interface that performs the calculations of area 
 tkinter_form.Form(self,master: object, name_form: str, form_dict: dict, name_config: str = "configure", button: bool = True)
 ```
 
-Form object is a `ttk.LabelFrame`. With additional attributes: [`self.widgets`](#tkinter_formformwidgets), [`self.button`](#tkinter_formformbutton), [`self.get()`](#tkinter_formformget), [`self.set() `](#tkinter_formformset).
+Form object is a `ttk.LabelFrame`. With additional attributes: [`self.widgets`](#tkinter_formformwidgets), [`self.button`](#tkinter_formformbutton), [`self.get()`](#tkinter_formformget), [`self.set() `](#tkinter_formformset), [`self.set_labels_text() `](#tkinter_formformset_labels_text).
 
 Parameters:
 
@@ -106,6 +106,11 @@ Methods:
 
 dictionary with keys value of the base dictionary with values to set in the form
 
+[`set_labels_text(set_labels)`](#tkinter_formformset_labels_text) : Return None
+    set_labels: dict
+
+dictionary with keys value of the base dictionary with values to set labels text in the form.
+
 [ttk.LabelFrame Methods](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-LabelFrame.html)
 
 #### tkinter_form.Form.button
@@ -118,7 +123,7 @@ dictionary that contains the widgets of the form with the same structure of the 
 
 ##### Example
 
-in[Fast Example](#fast-example) the widget attibute return:
+in [Fast Example](#fast-example) the widget attibute return:
 
 ```python
 {
@@ -177,7 +182,7 @@ Returns a dictionary with the same structure that was created which contains the
 
 ##### Example
 
-    in[Fast Example](#fast-example) the get() function return:
+    in [Fast Example](#fast-example) the get() function return:
 
 ```python
 {
@@ -231,13 +236,43 @@ dictionary with keys value of the base dictionary with values to set in the form
 
 ##### Example
 
-    in[Fast Example](#fast-example) the set() function in line 39-40:
+    in [Fast Example](#fast-example) the set() function in line 39-40:
 
 ```python
         result = {"result": str(value)}
         self.form.set(result)
 ```
 
+#### tkinter_form.Form.set_labes_text()
+
+Arguments:
+    set_dict : dict
+
+Return:
+    None
+
+dictionary with keys value of the base dictionary with values to set in the form
+
+##### Example
+
+    in [Fast Example](#fast-example) the set_labes_text():
+
+```python
+        rename_labels = {
+            "__form__": "Calculos Rectangulo",
+            "measures": {
+                "__form__": "medidas",
+                "width": "ancho",
+                "high": "alto",
+            },
+            "round": "redondear",
+            "type of calculation": "tipo de calculo",
+            "result": "resultado",
+        }
+        self.form.set_labels_text(rename_labels)
+```
+Result:
+![rename_labes](src/rename_labels_example1.PNG)
 ## Struct Form
 
 The form structure is based on a base dictionary. with some initial values that will be displayed in the interface and that determine the type of data that the entry accepts. This means that if the value in the base dictionary is an integer, the entry will only allow the entry of integer values.

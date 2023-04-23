@@ -195,7 +195,7 @@ class Form(ttk.LabelFrame):
             value = dict_vals[1]
 
             type_value = str(type(value))[8:-2]
-
+            tk.Grid.rowconfigure(self, index, weight=1)
             if type_value == "dict":
                 widget = Form(self, name_key, value, button=False)
                 widget.grid(row=index, column=0, columnspan=2, sticky="nesw")
@@ -208,8 +208,10 @@ class Form(ttk.LabelFrame):
             variable = self.__type_vars[type_value]()
             self.__vars[name_key] = variable
             widget = self.__type_widgets[type_value](self)
+            tk.Grid.columnconfigure(self, 1, weight=1)
             widget.grid(row=index, column=1, sticky="nesw", padx=2, pady=2)
             label = ttk.Label(self, text=name_key)
+            tk.Grid.columnconfigure(self, 0, weight=1)
             label.grid(row=index, column=0, sticky="nes", padx=2, pady=2)
 
             config = self.__configure_widgets[type_value]
@@ -258,3 +260,20 @@ class Form(ttk.LabelFrame):
         """
         for key, var in set_dict.items():
             self.__vars[key].set(var)
+
+    def set_labels_text(self, set_labels: dict) -> None:
+        """
+        Edit text labels Interfaces
+
+        Args:
+            set_labels (dict): labels to_edit
+        """
+        for key, var_name in set_labels.items():
+            if key == "__form__":
+                self.config(text=var_name)
+                continue
+            if isinstance(var_name, dict):
+                self.widgets[key].set_labels_text(var_name)
+                continue
+
+            self.widgets[key][0].config(text=var_name)
