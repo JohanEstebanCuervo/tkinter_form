@@ -203,6 +203,8 @@ class Form(ttk.LabelFrame):
                 self.__vars[name_key] = widget
                 self.widgets[name_key] = widget
 
+                ult_val = index
+
                 continue
 
             variable = self.__type_vars[type_value]()
