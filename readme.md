@@ -84,7 +84,7 @@ form_dict : dict[str:float|int|str|bool|list]
 
 
 name_config: str
-    name of the form button in case the argument`button` is `True` button : bool Create a button on the form by default 
+    name of the form button in case the argument`button` is `True` button : bool Create a button on the form by default
 
 Attributes:
 
@@ -150,7 +150,7 @@ If the structure of the form contains subdictionaries in said key, a Form will b
 Estruct example:
 
 ```python
-{   
+{
     "measures":{
         "high": 1.0,
         "width": 1.0
@@ -164,7 +164,7 @@ Estruct example:
     the`widget` attribute would be
 
 ```python
-{   
+{
     "measures":tkinter_form.Form,
     "round": [ttk.Label, ttk.CheckButtom],
     "type of calculation": [ttk.Label, ttk.ComboBox],
@@ -199,7 +199,7 @@ Returns a dictionary with the same structure that was created which contains the
 Estruct example:
 
 ```python
-{   
+{
     "measures":{
         "high": 1.0,
         "width": 1.0
@@ -213,7 +213,7 @@ Estruct example:
     the`get()` function return por example
 
 ```python
-{   
+{
     "measures":{
         "high": 3.7,
         "width": 5
@@ -273,6 +273,24 @@ dictionary with keys value of the base dictionary with values to set in the form
 ```
 Result:
 ![rename_labes](src/rename_labels_example1.PNG)
+
+### tkinter_form.Value
+```python
+tkinter_form.Value(self,val: Any, description:str)
+```
+
+If the base dictionary value is an instance of the Value class, it's description parameter is displayed on the row following the editing widget.
+
+```python
+{
+    "high": Value(3.7, "The high vale"),
+    "width": Value(5, "The width is used in the calculation"),
+    "round": Value(True, "Whether to round the result"),
+    "type of calculation": "calculate perimeter",
+    "result": "17",
+}
+```
+
 ## Struct Form
 
 The form structure is based on a base dictionary. with some initial values that will be displayed in the interface and that determine the type of data that the entry accepts. This means that if the value in the base dictionary is an integer, the entry will only allow the entry of integer values.

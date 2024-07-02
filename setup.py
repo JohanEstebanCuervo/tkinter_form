@@ -7,7 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "readme.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = "0.1.5.1"
+VERSION = "0.1.5.2"
 DESCRIPTION = "form for tkinter"
 LONG_DESCRIPTION = "create a form for tkinter from a base dictionary"
 

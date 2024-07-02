@@ -8,6 +8,15 @@ with some additional attributes.
 
 import tkinter as tk
 from tkinter import ttk
+from dataclasses import dataclass
+from typing import Any
+
+
+@dataclass
+class Value:
+    """ This class helps to enrich the field with a description. """
+    val: Any
+    description: str
 
 
 class Form(ttk.LabelFrame):
@@ -190,9 +199,12 @@ class Form(ttk.LabelFrame):
         """
         self.widgets = {}
         self.__vars = {}
-        for index, dict_vals in enumerate(form_dict.items()):
-            name_key = dict_vals[0]
-            value = dict_vals[1]
+        index = 0
+        for dict_vals in form_dict.items():
+            index += 1
+            name_key, value, description = *dict_vals, None
+            if isinstance(value, Value):
+                value, description = value.val, value.description
 
             type_value = str(type(value))[8:-2]
             tk.Grid.rowconfigure(self, index, weight=1)
@@ -215,6 +227,13 @@ class Form(ttk.LabelFrame):
             label = ttk.Label(self, text=name_key)
             tk.Grid.columnconfigure(self, 0, weight=1)
             label.grid(row=index, column=0, sticky="nes", padx=2, pady=2)
+	
+            # Add a further description to the row below the widget
+            if description:
+                index += 1
+                description_label = ttk.Label(self, text=description)
+                description_label.grid(row=index, column=1, columnspan=2, sticky="nesw", padx=2, pady=2)
+
 
             config = self.__configure_widgets[type_value]
 
