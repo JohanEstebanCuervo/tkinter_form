@@ -1,24 +1,26 @@
 """
+Programmed By Johan Esteban Cuervo Chica
+
 This code generates a tkinter form automatically from a base dictionary.
 from a base dictionary. Returning a tk.Frame object
 with some additional attributes.
-
-Programmed By Johan Esteban Cuervo Chica
 """
 
 import tkinter as tk
 from tkinter import ttk
 import re
+from dataclasses import dataclass
 from typing import Any
 
 from .field_form import FieldForm
 
+
+@dataclass
 class Value:
     """This class helps to enrich the field with a description."""
 
-    def __init__(self, val:Any, description:str):
-        self.val = val
-        self.description = description
+    val: Any
+    description: str
 
 
 class Form(ttk.LabelFrame):
@@ -46,7 +48,7 @@ class Form(ttk.LabelFrame):
         super().__init__(master, text=name_form)
         self.__register_validations()
 
-        self.fields: dict = {}
+        self.fields: dict[Form, FieldForm] = {}
 
         self.__type_vars = {
             float: tk.DoubleVar,
@@ -354,7 +356,7 @@ class Form(ttk.LabelFrame):
 
     def validation(
         self,
-        dict_validations: dict,
+        dict_validations: dict[str, callable] | None,
         full_validation: bool = False,
         if_validation_false: callable = None,
     ):

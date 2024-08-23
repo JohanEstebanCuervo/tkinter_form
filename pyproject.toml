@@ -4,14 +4,14 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tkinter-form"
-version = "0.2"
+version = "0.2.1"
 authors = [
     { name="JohanEstebanCuervo", email="jecuervoch@unal.edu.co" },
 ]
 description = "form for tkinter"
 readme = "readme.md"
 license = { file="LICENSE" }
-requires-python = ">=3.6"
+requires-python = ">=3.10"
 classifiers = [
     "Development Status :: 1 - Planning",
     "Intended Audience :: Developers",

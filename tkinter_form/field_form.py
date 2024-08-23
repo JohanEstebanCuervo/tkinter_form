@@ -1,7 +1,7 @@
 """
-Module logical form field
-
 Programmed By Johan Esteban Cuervo Chica
+
+Module logical form field
 """
 
 import tkinter as tk
@@ -194,7 +194,7 @@ class FieldForm:
         """
         self.description.config(text=value)
 
-    def set_combobox_list(self, renames_list: list):
+    def set_combobox_list(self, renames_list: list[str]):
         """
         Set text combobox list
 
