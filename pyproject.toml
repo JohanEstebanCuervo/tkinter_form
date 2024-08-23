@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tkinter-form"
+version = "0.2"
+authors = [
+    { name="JohanEstebanCuervo", email="jecuervoch@unal.edu.co" },
+]
+description = "form for tkinter"
+readme = "readme.md"
+license = { file="LICENSE" }
+requires-python = ">=3.6"
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Operating System :: Unix",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/JohanEstebanCuervo/tkinter_form"
+"Bug Tracker" = "https://github.com/JohanEstebanCuervo/tkinter_form/issues"
