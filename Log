@@ -1,7 +1,9 @@
+V 0.2.1:
+ -Version with notations for python >=3.10
+
 V 0.2:
  -Object FieldForm
  -Validation form
- - 
 
 V 0.1.5.2:
  -Widget's description
